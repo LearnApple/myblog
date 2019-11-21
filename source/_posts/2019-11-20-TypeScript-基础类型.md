@@ -1,6 +1,6 @@
 ---
   layout: post
-  title: "TypeScript"
+  title: "TypeScript-基础类型"
   description: "TypeScript"
   category: [TypeScript]
   tags: [TypeScript]
@@ -47,7 +47,25 @@ ts有两种方式可以定义数组
 ```typescript
 let arr1: number[] = [0,1,2,3] // 元素类型后面跟[]
 let arr2: Array<number> = [4,5,6,7] // 使用数组泛型，Array<元素类型>
+// 也可以使用接口描述数组
+interface NumberArray {
+    [index: number]: number;
+}
+let fibonacci: NumberArray = [1, 1, 2, 3, 5];
 ```
+###### 类数组
+不是数组类型，比如：arguments，应该用接口来描述：
+```typescript
+function sum() {
+    let args: {
+        [index: number]: number;
+        length: number;
+        callee: Function;
+    } = arguments;
+}
+```
+事实上常用的类数组都有自己的接口定义，如 IArguments, NodeList, HTMLCollection 等：
+
 ##### 元组 Tuple
 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。比如，你可以定义一对值分别为string和number类型的数组。
 ```typescript
@@ -129,6 +147,7 @@ let strLength: number = (<string>someValue).length;
 let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
+ ==类型断言好比其它语言里的类型转换==，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。 TypeScript会假设你，程序员，已经进行了必须的检查。
 
 ##### 联合类型
 表示取值可以为多种类型中的一种
@@ -137,3 +156,4 @@ let myFavoriteNumber: string | number;
 myFavoriteNumber = 'seven';
 myFavoriteNumber = 7;
 ```
+
