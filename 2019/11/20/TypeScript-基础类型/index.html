@@ -19,7 +19,7 @@
   
   
   <link rel="icon" type="image/x-icon" href="/logo.png">
-  <title>TypeScript [ Dovima&#39;s Blog ]</title>
+  <title>TypeScript-基础类型 [ Learning ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -37,7 +37,7 @@
   <a class="pure-menu-heading" href="/">
     <!-- <img class="avatar" src="https://LearnApple.github.io/images/logo.jpg"> -->
     <img class="avatar" src="https://LearnApple.github.io/images/logo.jpg">
-    <span class="title">Dovima&#39;s Blog</span>
+    <span class="title">Learning</span>
   </a>
 
   <ul class="pure-menu-list clearfix">
@@ -48,6 +48,14 @@
       
           
             <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">归档</a></li>
+          
+      
+          
+            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">标签</a></li>
+          
+      
+          
+            <li class="pure-menu-item"><a href="/categories" class="pure-menu-link">分类</a></li>
           
       
   </ul>
@@ -61,7 +69,7 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        TypeScript
+        TypeScript-基础类型
       </h1>
       <span>
         
@@ -81,7 +89,7 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 6 分钟</span>
+      <span class="read">阅读耗时 7 分钟</span>
     </header>
 
     <div class="post-content">
@@ -94,7 +102,10 @@
 <p>还可以使用模板字符串</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name: <span class="built_in">string</span> = <span class="string">`Gene`</span>;</span><br><span class="line"><span class="keyword">let</span> age: <span class="built_in">number</span> = <span class="number">37</span>;</span><br><span class="line"><span class="keyword">let</span> sentence:<span class="built_in">string</span> = <span class="string">`</span></span><br><span class="line"><span class="string">Hello, my name is <span class="subst">$&#123; name &#125;</span>.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I'll be <span class="subst">$&#123; age + <span class="number">1</span> &#125;</span> years old next month.</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
 <h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p>ts有两种方式可以定义数组</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1: <span class="built_in">number</span>[] = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="comment">// 元素类型后面跟[]</span></span><br><span class="line"><span class="keyword">let</span> arr2: <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>] <span class="comment">// 使用数组泛型，Array&lt;元素类型&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1: <span class="built_in">number</span>[] = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="comment">// 元素类型后面跟[]</span></span><br><span class="line"><span class="keyword">let</span> arr2: <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>] <span class="comment">// 使用数组泛型，Array&lt;元素类型&gt;</span></span><br><span class="line"><span class="comment">// 也可以使用接口描述数组</span></span><br><span class="line"><span class="keyword">interface</span> NumberArray &#123;</span><br><span class="line">    [index: <span class="built_in">number</span>]: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fibonacci: NumberArray = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br></pre></td></tr></table></figure>
+<h6 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h6><p>不是数组类型，比如：arguments，应该用接口来描述：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> args: &#123;</span><br><span class="line">        [index: <span class="built_in">number</span>]: <span class="built_in">number</span>;</span><br><span class="line">        length: <span class="built_in">number</span>;</span><br><span class="line">        callee: <span class="built_in">Function</span>;</span><br><span class="line">    &#125; = <span class="built_in">arguments</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>事实上常用的类数组都有自己的接口定义，如 IArguments, NodeList, HTMLCollection 等：</p>
 <h5 id="元组-Tuple"><a href="#元组-Tuple" class="headerlink" title="元组 Tuple"></a>元组 Tuple</h5><p>元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。比如，你可以定义一对值分别为string和number类型的数组。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x: [<span class="built_in">string</span>, <span class="built_in">number</span>];</span><br><span class="line"></span><br><span class="line">x = [<span class="string">'hello'</span>, <span class="number">10</span>]</span><br><span class="line">x = [<span class="number">10</span>, <span class="string">'hello'</span>] <span class="comment">// error</span></span><br><span class="line"><span class="comment">// 当访问一个已知索引的元素，可以得到正确的类型</span></span><br><span class="line"><span class="built_in">console</span>.log(x[<span class="number">0</span>].substr(<span class="number">1</span>))</span><br><span class="line"><span class="comment">// 当访问一个越界元素，会使用联合类型替代</span></span><br><span class="line">x[<span class="number">3</span>] = <span class="string">'world'</span></span><br><span class="line"><span class="built_in">console</span>.log(x[<span class="number">5</span>].toString()); <span class="comment">// OK, 'string' 和 'number' 都有 toString</span></span><br><span class="line">x[<span class="number">6</span>] = <span class="literal">true</span>; <span class="comment">// Error, 布尔不是(string | number)类型</span></span><br></pre></td></tr></table></figure>
 <p>==联合类型==</p>
@@ -114,9 +125,10 @@
 <h5 id="Never"><a href="#Never" class="headerlink" title="Never"></a>Never</h5><p>never类型表示的是那些永不存在的值的类型。 例如， never类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型； 变量也可能是 never类型，当它们被永不为真的类型保护所约束时。</p>
 <h5 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h5><p>表示非原始类型，除number string boolean null undefined symbol之外的类型</p>
 <h5 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h5><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两种形式，一种是尖括号，另一种是as语法</span></span><br><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (&lt;<span class="built_in">string</span>&gt;someValue).length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (someValue <span class="keyword">as</span> <span class="built_in">string</span>).length;</span><br></pre></td></tr></table></figure>
-
+<p> ==类型断言好比其它语言里的类型转换==，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。 TypeScript会假设你，程序员，已经进行了必须的检查。</p>
 <h5 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h5><p>表示取值可以为多种类型中的一种</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myFavoriteNumber: <span class="built_in">string</span> | <span class="built_in">number</span>;</span><br><span class="line">myFavoriteNumber = <span class="string">'seven'</span>;</span><br><span class="line">myFavoriteNumber = <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -126,7 +138,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript"><span class="toc-text">TypeScript</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基础类型"><span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#布尔值"><span class="toc-text">布尔值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数字"><span class="toc-text">数字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串"><span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#元组-Tuple"><span class="toc-text">元组 Tuple</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#枚举"><span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Any"><span class="toc-text">Any</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Void"><span class="toc-text">Void</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Null和Undefined"><span class="toc-text">Null和Undefined</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Never"><span class="toc-text">Never</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Object"><span class="toc-text">Object</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类型断言"><span class="toc-text">类型断言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#联合类型"><span class="toc-text">联合类型</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript"><span class="toc-text">TypeScript</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基础类型"><span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#布尔值"><span class="toc-text">布尔值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数字"><span class="toc-text">数字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串"><span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#类数组"><span class="toc-text">类数组</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#元组-Tuple"><span class="toc-text">元组 Tuple</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#枚举"><span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Any"><span class="toc-text">Any</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Void"><span class="toc-text">Void</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Null和Undefined"><span class="toc-text">Null和Undefined</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Never"><span class="toc-text">Never</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Object"><span class="toc-text">Object</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类型断言"><span class="toc-text">类型断言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#联合类型"><span class="toc-text">联合类型</span></a></li></ol></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -175,7 +187,7 @@
   <script>
     var disqus_shortname = 'XXX';
     
-    var disqus_url = 'https://learnapple.github.io/2019/11/20/TypeScript/';
+    var disqus_url = 'https://learnapple.github.io/2019/11/20/TypeScript-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B/';
     
     (function(){
       var dsq = document.createElement('script');
