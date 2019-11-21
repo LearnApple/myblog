@@ -96,7 +96,7 @@ theme: xoxo
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: 'git'
+  type: git
   repository: https://github.com/LearnApple/LearnApple.github.io.git
   branch: master
 
