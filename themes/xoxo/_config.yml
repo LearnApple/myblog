@@ -6,11 +6,11 @@ language: zh-Hans
 menu:
   home: /
   archives: /archives
-  tags: /tags
+  # tags: /tags
   #categories: /categories
-  search: /search
-  about: https://0xff000000.com
-  rss: /atom.xml
+  # search: /search
+  # about: https://0xff000000.com
+  # rss: /atom.xml
 
 # Miscelaneous
 favicon: /logo.png
@@ -27,7 +27,7 @@ scripts:
 #- /js/xoxo.js
 
 # switch
-show_excerpt: true
+show_description: true
 show_date: true
 #footer
 index_page: https://blog.0xff000000.com
