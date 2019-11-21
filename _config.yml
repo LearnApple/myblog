@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Dovima's Blog
+title: Learning
 subtitle: '学习'
 description: '学习记录小站'
 keywords:
@@ -104,7 +104,7 @@ deploy:
 menu:
   home: /
   archives: /archives
-  # tags: /tags
+  tags: /tags
   # search: /search
   # about: https://0xff000000.com
   # rss: /atom.xml

@@ -2,7 +2,7 @@
   layout: post
   title: "第一篇"
   description: "第一篇"
-  category: first blog
+  categories: first blog
   tags: [first blog]
 ---
 
