@@ -79,5 +79,24 @@ let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
 #### this
 
 [this是如何工作的-Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
+call方法
+```javascript
+function hello(thing) {
+  console.log(this + " says hello " + thing);
+}
 
+hello.call("Yehuda", "world") //=> Yehuda says hello world
+```
 ##### this和箭头函数
+js里this的值在被调用的时候才会被指定。
+
+##### this参数
+
+##### this参数在回调函数里
+
+#### 重载
+
+重载允许一个函数接受不同数量或类型的参数时，作出不同的处理。
+同一个函数提供多个函数类型定义来进行函数重载。
+
+注意，TypeScript 会优先从最前面的函数定义开始匹配，所以多个函数定义如果有包含关系，需要优先把精确的定义写在前面。
